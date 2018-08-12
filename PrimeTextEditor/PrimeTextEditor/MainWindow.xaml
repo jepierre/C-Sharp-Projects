@@ -1,0 +1,55 @@
+﻿<Window x:Class="PrimeTextEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrimeTextEditor"
+        mc:Ignorable="d"
+        Title="Prime Text Editor" Height="420" Width="640" >
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File" Click="MenuItem_Click">
+                <MenuItem Header="_New" Click="mnuNewClick"/>
+                <MenuItem Header="_Open" Click="mnuOpenClick"/>
+                <MenuItem Header="_Save" Click="mnuSaveClick"/>
+                <Separator/>
+                <MenuItem Header="_Exit" Click="mnuCloseClick"/>
+            </MenuItem>
+            <MenuItem Header="_Format">
+                <MenuItem Header="WordWrap" IsCheckable="True" Checked="WordWrap_Checked" Unchecked="WordWrap_Unchecked"/>
+                <MenuItem Header="Font" Click="mnuFontClick"/>
+            </MenuItem>
+        </Menu>
+
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem>
+                <TextBlock Name="lblCursorPosition" /> 
+            </StatusBarItem>
+            <Separator Grid.Column="1" />
+            <StatusBarItem Grid.Column="2">
+                <TextBlock Name="tbCurrentFileLocation" Text="" /> 
+            </StatusBarItem>
+            <Separator Grid.Column="3" />
+            <StatusBarItem Grid.Column="4">
+                <ProgressBar Value="50" Width="90" Height="16" />
+            </StatusBarItem>
+        </StatusBar>        
+        <TextBox  AcceptsReturn="True" Name="tbEditor" SelectionChanged="tbSelectionChanged">
+        </TextBox>
+
+    </DockPanel>
+    
+</Window>
