@@ -131,5 +131,13 @@ namespace Weather
                 updateUI();
             }
         }
+
+        private void mnuAboutClick(object sender, RoutedEventArgs e)
+        {
+
+            WeatherAbout about = new WeatherAbout();
+            about.Name = "Weather App";
+            about.ShowDialog();
+        }
     }
 }
